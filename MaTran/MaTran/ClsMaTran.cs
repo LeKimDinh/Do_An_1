@@ -57,7 +57,48 @@ namespace MaTran
         public ClsMaTran Nhan(ClsMaTran A, ClsMaTran B)
         {
             ClsMaTran C = new ClsMaTran();
+            for(int i = 0; i < SoDong; i++)     // dòng của ma trận 1
+            {
+                for(int j = 0; j < SoCot; j++)   // cột của ma trận 2
+                {
+                    int sum = 0;
+                    for(int k = 0; k < soDong; k++)
+                        sum += A.Matrix[i][k] * B.Matrix[k][j];
+                    C.Matrix[i][j] = sum;
+                }
+            }
+
+            return C;
 
         }
+
+        public ClsMaTran ChuyenVi(ClsMaTran A)
+        {
+            ClsMaTran C = new ClsMaTran ();
+            for(int i = 0; i < soDong; i++)
+            {
+                for(int j=0; j < SoCot; j++)
+                {
+                    C.Matrix[j][i] = A.Matrix[i][j];
+                }
+            }
+            return C;
+        }
+
+        public bool NghichDao(ref ClsMaTran A,int SoD,int SoC)
+        {
+            if(SoD!=SoC)
+                return false;
+
+            return true;
+        }
+
+        public float Det(ClsMaTran A,int n)
+        {
+            float k=0;
+
+            return k;
+        }
+
     }
 }
