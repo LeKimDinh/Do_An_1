@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace MaTran
         {
             this.soDong = 0;
             this.SoCot = 0;
-            this.Matrix = new float[100,100];
+            this.Matrix = new float[1000, 1000];
         }
         public int SoDong { get => soDong; set => soDong = value; }
         public int SoCot { get => soCot; set => soCot = value; }
@@ -29,6 +30,8 @@ namespace MaTran
             {
                 return null;
             }
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
             for (int i = 0; i < A.soDong; i++)
             {
                 for (int j = 0; j < A.soCot; j++)
@@ -36,7 +39,6 @@ namespace MaTran
                     C.matrix[i,j] = A.matrix[i,j] + B.matrix[i,j];
                 }
             }
-            PrintfMatrix(C);
             return C;
         }
         public ClsMaTran Tru(ClsMaTran A, ClsMaTran B)
@@ -47,6 +49,8 @@ namespace MaTran
             {
                 return null;
             }
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
             for (int i = 0; i < A.soDong; i++)
             {
                 for (int j = 0; j < A.soCot; j++)
@@ -59,6 +63,8 @@ namespace MaTran
         public ClsMaTran Nhan(ClsMaTran A, ClsMaTran B)
         {
             ClsMaTran C = new ClsMaTran();
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
             for(int i = 0; i < A.SoDong; i++)     // dòng của ma trận 1
             {
                 for(int j = 0; j < B.SoCot; j++)   // cột của ma trận 2
@@ -69,76 +75,76 @@ namespace MaTran
                     C.Matrix[i,j] = sum;
                 }
             }
-
             return C;
-
         }
 
-        public ClsMaTran ChuyenVi(ClsMaTran A)
+        public ClsMaTran ChuyenVi()
         {
             ClsMaTran C = new ClsMaTran ();
-            for(int i = 0; i < A.soDong; i++)
+            C.SoDong = this.SoCot;
+            C.SoCot = this.SoDong;
+            for(int i = 0; i < this.soDong; i++)
             {
-                for(int j=0; j < A.SoCot; j++)
+                for(int j=0; j < this.SoCot; j++)
                 {
-                    C.Matrix[j,i] = A.Matrix[i,j];
+                    C.Matrix[j,i] = this.Matrix[i,j];
                 }
             }
             return C;
         }
 
-        public bool NghichDao(ref ClsMaTran A)
+        public bool NghichDao()
         {
-            if (A.SoDong != A.soCot)
+            if (this.SoDong != this.soCot)
             {
                 Console.WriteLine("There is no inverse matrix\n");
                 return false;
             }
             ClsMaTran B = new ClsMaTran();
-            for(int i = 0; i < A.SoDong; i++)
+            for(int i = 0; i < this.SoDong; i++)
             {
-                for(int j = 0; j < A.SoDong; j++)
+                for(int j = 0; j < this.SoDong; j++)
                 {
-                    B.Matrix[i,j] = Con(A, A.SoDong, i, j);
+                    B.Matrix[i,j] = Con(this, this.SoDong, i, j);
                 }
             }
-            for(int i = 0; i < A.SoDong - 1; i++)
+            for(int i = 0; i < this.SoDong - 1; i++)
             {
-                for(int j = i + 1; j < A.SoDong; j++)
+                for(int j = i + 1; j < this.SoDong; j++)
                 {
                     float t = B.Matrix[i,j];
                     B.Matrix[i,j] = B.Matrix[j,i];
                     B.Matrix[j,i] = t;
                 }
             }
-            float k = Det(ref A, A.SoDong);
-            for (int i = 0; i < A.SoDong; i++)
-                for (int j = 0; j < A.SoDong; j++)
+            float k = Det(this.SoDong);
+            for (int i = 0; i < this.SoDong; i++)
+                for (int j = 0; j < this.SoDong; j++)
                     B.Matrix[i,j] /= k;
             if (k == 0) Console.WriteLine("There is no inverse matrix\n");
-            else PrintfMatrix(B);
+            else B.PrintfMatrix();
             return true;
         }
 
-        public float Det(ref ClsMaTran A ,int n)
+        public float Det(int n)
         {
             int i, j, k, dem = 0, kt=0;
             float[] b = new float[100];
             float kq = 1, h;
             for (i = 0; i < n - 1; i++)
             {
-                if (A.Matrix[i,i] == 0)
+                if (this.Matrix[i,i] == 0)
                 {
                     kq = 0;
                     for (j = i + 1; j < n; j++)
                     {
-                        if (A.Matrix[i,j] != 0)
+                        if (this.Matrix[i,j] != 0)
                         {
                             for (k = 0; k < n; k++)
                             {
-                                float t = A.Matrix[k,i];
-                                A.Matrix[k,i] = A.Matrix[k,j];
-                                A.Matrix[k,j] = t;
+                                float t = this.Matrix[k,i];
+                                this.Matrix[k,i] = this.Matrix[k,j];
+                                this.Matrix[k,j] = t;
                             }
                             dem++;
                             kt++;
@@ -147,21 +153,21 @@ namespace MaTran
                     }
                     if (kt == 0) return 0;
                 }
-                b[i] = A.Matrix[i,i];
-                for (j = 0; j < n; j++) A.Matrix[i,j] /= b[i];
+                b[i] = this.Matrix[i,i];
+                for (j = 0; j < n; j++) this.Matrix[i,j] /= b[i];
                 for (j = i + 1; j < n; j++)
                 {
-                    h = A.Matrix[j,i];
-                    for (k = 0; k < n; k++) A.Matrix[j,k] = A.Matrix[j,k] - h * A.Matrix[i,k];
+                    h = this.Matrix[j,i];
+                    for (k = 0; k < n; k++) this.Matrix[j,k] = this.Matrix[j,k] - h * this.Matrix[i,k];
                 }
                 
             }
-            b[n - 1] = A.Matrix[n - 1,n - 1];
+            b[n - 1] = this.Matrix[n - 1,n - 1];
             for (i = 0; i < n; i++) kq *= b[i];
             if (dem % 2 == 0) return kq;
             return -kq;
         }
-        public float Con(ClsMaTran A, int SoN, int h, int c)
+        private float Con(ClsMaTran A, int SoN, int h, int c)
         {
             ClsMaTran B = new ClsMaTran();
             int i, j, x = -1, y;
@@ -177,39 +183,108 @@ namespace MaTran
                     B.Matrix[x,y] = A.Matrix[i,j];
                 }
             }
-            if ((h + c) % 2 == 0) return Det(ref B, SoN - 1);
-            return -Det(ref B, SoN - 1);
+            if ((h + c) % 2 == 0) return Det(SoN - 1);
+            return -Det(SoN - 1);
         }
-
-        public void PrintfMatrix(ClsMaTran A)
+        public void PrintfMatrix()
         {
-            Console.WriteLine("Ma trận được in ra: ");
-            for (int i = 0; i < A.SoDong; i++)
+            for (int i = 0; i < this.SoDong; i++)
             {
-                for(int j=0;j<A.SoCot;j++)
+                for(int j=0;j<this.SoCot;j++)
                 {
-                    Console.Write("     {0}", A.Matrix[i,j]);
+                    Console.Write(string.Format("{0}\t", this.Matrix[i, j]));
                 }
                 Console.WriteLine();
             }
         }
-
-        public void EnterMatrix( ClsMaTran A)
-        {           
-            Console.Write(" Moi ban nhap so dong cua mang: ");
-            A.soDong = int.Parse(Console.ReadLine());
-            Console.Write(" Moi ban nhap so cot cua mang: ");
-            A.soCot = int.Parse(Console.ReadLine());
-            
-                for (int i = 0; i < A.SoDong; i++)
+        public void EnterMatrix()
+        {
+            int kt;
+            do
+            {
+                try
                 {
-                    for (int j = 0; j < A.SoCot; j++)
+                    Console.Write(" Moi ban nhap so DONG cua Matrix: ");
+                    this.soDong = int.Parse(Console.ReadLine());
+                    kt = 1;
+                }
+                catch
+                {
+                    Console.WriteLine("Du lieu vao khong chinh xac, vui long nhap lai!\n");
+                    kt = 0;
+                }
+            }
+            while (kt == 0);
+
+            do
+            {
+                try
+                {
+                    Console.Write(" Moi ban nhap so COT cua Matrix: ");
+                    this.SoCot = int.Parse(Console.ReadLine());
+                    kt = 1;
+                }
+                catch
+                {
+                    Console.WriteLine("Du lieu vao khong chinh xac, vui long nhap lai!\n");
+                    kt = 0;
+                }
+            }
+            while (kt == 0);
+
+            for (int i = 0; i < this.SoDong; i++)
+            {
+                for (int j = 0; j < this.SoCot; j++)
+                {
+                    do
                     {
-                        Console.Write(" Moi ban nhap gia tri cua A[{0}][{1}]: ", i, j);
-                        A.Matrix[i,j] = float.Parse(Console.ReadLine());
+                        try
+                        {
+                            Console.Write(" Moi ban nhap gia tri cua A[{0}][{1}]: ", i, j);
+                            this.Matrix[i, j] = float.Parse(Console.ReadLine());
+                            kt = 1;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Du lieu vao khong chinh xac, vui long nhap lai!\n");
+                            kt = 0;
+                        }
                     }
+                    while (kt == 0);
                     Console.Write("\n");
-                }                       
+                }
+            }
+        }
+        public void RanDomMatrix(int sodong, int socot)
+        {
+            this.SoDong = sodong;
+            this.SoCot = socot;
+            Random rd = new Random();
+            for (int i = 0; i < this.SoDong; i++)
+            {
+                for (int j = 0; j < this.soCot; j++)
+                {
+                    this.matrix[i, j] = rd.Next(0, 100);
+                }
+            }
+        }
+        public void WriteTxt()
+        {
+            using (TextWriter tw = new StreamWriter("Result.txt"))
+            {
+                for (int j = 0; j < this.SoDong; j++)
+                {
+                    for (int i = 0; i < this.SoCot; i++)
+                    {
+                        if (i != 0)
+                        {
+                            tw.Write("\t");
+                        }
+                        tw.Write(this.matrix[i, j]);
+                    }
+                    tw.WriteLine();
+                }
+            }
         }
     }
 }

@@ -11,15 +11,19 @@ namespace MaTran
         static void Main(string[] args)
         {            
             ClsMaTran maTran = new ClsMaTran();
-            maTran.EnterMatrix( maTran);
-            maTran.PrintfMatrix(maTran);
+            maTran.RanDomMatrix(1000, 1000);
+            //maTran.EnterMatrix( );
+            //maTran.PrintfMatrix();
          
             ClsMaTran maTran2 = new ClsMaTran();
-            maTran.EnterMatrix(maTran2);
-            maTran.PrintfMatrix(maTran2);
+            maTran2.RanDomMatrix(1000, 1000);
+            //maTran2.EnterMatrix();
+            //maTran2.PrintfMatrix();
 
-            maTran.Cong(maTran, maTran2);
-          
+            maTran = maTran.Nhan(maTran, maTran2);
+            //maTran.PrintfMatrix();
+            maTran.WriteTxt();
+            Console.WriteLine("Complete!\n");
             Console.ReadKey();
         }
     }
