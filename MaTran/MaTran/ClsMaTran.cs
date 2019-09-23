@@ -77,7 +77,6 @@ namespace MaTran
             }
             return C;
         }
-
         public ClsMaTran ChuyenVi()
         {
             ClsMaTran C = new ClsMaTran ();
@@ -92,7 +91,6 @@ namespace MaTran
             }
             return C;
         }
-
         public bool NghichDao()
         {
             if (this.SoDong != this.soCot)
@@ -125,7 +123,6 @@ namespace MaTran
             else B.PrintfMatrix();
             return true;
         }
-
         public float Det(int n)
         {
             int i, j, k, dem = 0, kt=0;
@@ -286,5 +283,65 @@ namespace MaTran
                 }
             }
         }
+
+        //Operator
+        public static ClsMaTran operator +(ClsMaTran A, ClsMaTran B)
+        {
+            ClsMaTran C = new ClsMaTran();
+
+            if (A.soDong != B.soDong || A.soCot != B.soCot)
+            {
+                return null;
+            }
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
+            for (int i = 0; i < A.soDong; i++)
+            {
+                for (int j = 0; j < A.soCot; j++)
+                {
+                    C.matrix[i, j] = A.matrix[i, j] + B.matrix[i, j];
+                }
+            }
+            return C;
+
+        }
+        public static ClsMaTran operator -(ClsMaTran A, ClsMaTran B)
+        {
+            ClsMaTran C = new ClsMaTran();
+
+            if (A.soDong != B.soDong || A.soCot != B.soCot)
+            {
+                return null;
+            }
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
+            for (int i = 0; i < A.soDong; i++)
+            {
+                for (int j = 0; j < A.soCot; j++)
+                {
+                    C.matrix[i, j] = A.matrix[i, j] - B.matrix[i, j];
+                }
+            }
+            return C;
+
+        }
+        public static ClsMaTran operator *(ClsMaTran A, ClsMaTran B)
+        {
+            ClsMaTran C = new ClsMaTran();
+            C.SoDong = A.SoDong;
+            C.SoCot = A.SoCot;
+            for (int i = 0; i < A.SoDong; i++)     // dòng của ma trận 1
+            {
+                for (int j = 0; j < B.SoCot; j++)   // cột của ma trận 2
+                {
+                    float sum = 0;
+                    for (int k = 0; k < A.soDong; k++)
+                        sum += A.Matrix[i, k] * B.Matrix[k, j];
+                    C.Matrix[i, j] = sum;
+                }
+            }
+            return C;
+        }
+
     }
 }
