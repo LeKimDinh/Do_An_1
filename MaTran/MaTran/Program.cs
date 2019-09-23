@@ -12,17 +12,18 @@ namespace MaTran
         static void Main(string[] args)
         {            
             ClsMaTran A = new ClsMaTran();
-            A.RanDomMatrix(100, 100);
-            //maTran.EnterMatrix( );
+            //A.RanDomMatrix(4, 4);
+            A.EnterMatrix();
+            A.TinhCos();
             //maTran.PrintfMatrix();
          
-            ClsMaTran B = new ClsMaTran();
-            B.RanDomMatrix(100, 100);
+            //ClsMaTran B = new ClsMaTran();
+            //B.RanDomMatrix(100, 100);
             //maTran2.EnterMatrix();
             //maTran2.PrintfMatrix();
-            ClsMaTran C = new ClsMaTran();
-            C = A * B;
-            C.WriteTxt();
+            //ClsMaTran C = new ClsMaTran();
+            //C = A * B;
+            //C.WriteTxt();
             Console.WriteLine("Complete!\n");
             Console.ReadKey();
 
@@ -94,7 +95,6 @@ namespace MaTran
                 Console.WriteLine("Chon matrxi thu 2.");
                 Console.WriteLine("1.A\n2.B\n3.C");
                 t2 = Convert.ToInt32(Console.ReadLine());
-
         }
         public static void Callculator(int tinh,int t1,int t2)
         {
@@ -109,8 +109,6 @@ namespace MaTran
                 default:
                     break;
             }
-
-
         }
 
 
