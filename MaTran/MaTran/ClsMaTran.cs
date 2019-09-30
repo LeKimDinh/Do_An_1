@@ -20,8 +20,7 @@ namespace MaTran
             this.soDong = 0;
             this.SoCot = 0;
             this.Matrix = new double[1000, 1000];
-            this.ListDoDaiVector = new List<double>();
-            this.ListDoDaiVector2 = new List<double>();
+            this.ListDoDaiVector = new List<double>();          
         }
         public int SoDong { get => soDong; set => soDong = value; }
         public int SoCot { get => soCot; set => soCot = value; }
@@ -364,18 +363,6 @@ namespace MaTran
                 ListDoDaiVector.Add(Math.Sqrt(sum));
             }
         }
-        private void LayDoDai2()
-        {
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                double sum = 0;
-                for (int j = 0; j < this.soCot; j++)
-                {
-                    sum += this.matrix[i, j] * this.matrix[i, j];
-                }
-                ListDoDaiVector2.Add(Math.Sqrt(sum));
-            }
-        }
         private void ChuanHoaMatrix()
         {
             for (int i = 0; i < this.SoDong; i++)
@@ -385,18 +372,6 @@ namespace MaTran
                     this.matrix[i, j] = this.matrix[i, j] / this.ListDoDaiVector[i];
                 }
             }
-        }
-        private double TinhTichVoHuong(double[] t1, double[] t2)
-        {
-            t1 = new double[this.SoCot];
-            t2 = new double[this.SoCot];
-            double X = 0;
-            for (int i = 0; i < this.SoCot; i++)
-            {
-                X += t1[i] * t2[i];
-            }
-            
-            return X;
         }
         public void TinhCos()
         {
@@ -425,60 +400,6 @@ namespace MaTran
             this.soCot = this.SoDong;
             kq.PrintfMatrix();
             kq.WriteTxt();
-        }
-        public void test()
-        {
-            this.LayDoDai();
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                Console.Write(ListDoDaiVector[i] + " ");
-            }
-            Console.WriteLine();
-
-            this.ChuanHoaMatrix();
-            PrintfMatrix();
-
-            this.LayDoDai();
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                Console.Write(ListDoDaiVector[i] + " ");
-            }
-            Console.WriteLine();
-
-        }
-        public void In()
-        {
-            LayDoDai();
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                Console.Write(ListDoDaiVector[i] + " ");
-            }
-            Console.WriteLine();
-            //
-
-            ChuanHoaMatrix();
-
-            //
-            Console.WriteLine();
-            Console.WriteLine();
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                Console.Write(ListDoDaiVector[i] + " ");
-            }
-            Console.WriteLine();
-            ClsMaTran mt = new ClsMaTran();
-            mt.SoDong = this.SoDong;
-            mt.SoCot = this.SoCot;
-            for (int i = 0; i <= this.SoDong/2; i++)
-            {
-                for (int j = 0; j < this.SoDong; j++)
-                {
-                    mt.matrix[i, j] = ListDoDaiVector[i] / ListDoDaiVector[j];
-                    mt.matrix[j, i] = ListDoDaiVector[i] / ListDoDaiVector[j];
-
-                }
-            }
-            mt.PrintfMatrix();
         }
 
     }

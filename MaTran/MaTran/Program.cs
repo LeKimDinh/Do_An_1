@@ -11,10 +11,12 @@ namespace MaTran
         public static List<ClsMaTran> List = new List<ClsMaTran>();
         static void Main(string[] args)
         {            
-            ClsMaTran A = new ClsMaTran();
+            ClsMaTran A = new ClsMaTran();            
+            ClsMaTran B = new ClsMaTran();
+            ClsMaTran C = new ClsMaTran();
             //A.RanDomMatrix(4, 4);
-            A.RanDomMatrix(10, 20);
-            A.TinhCos();
+            //A.RanDomMatrix(10, 20);
+            //A.TinhCos();
             //maTran.PrintfMatrix();
 
             //ClsMaTran B = new ClsMaTran();
@@ -25,6 +27,93 @@ namespace MaTran
             //C = A * B;
             //C.WriteTxt();
             //A.WriteTxt();
+            int x = InMenu1();
+
+            switch (x)
+            {
+                case 1:
+                    {
+                        ahihi:
+                        int nhap = InMenuNhap();
+                        if (nhap == 0)
+                            x = InMenu1();
+                        else
+                        {
+                            switch (nhap)
+                            {
+
+                                case 1:
+                                    {
+                                        int nhaptay = InMenu(); 
+                                        while (nhaptay != 0)
+                                        {                                           
+                                            switch (nhaptay)
+                                            {
+                                                case 1:
+                                                        A.EnterMatrix();
+                                                    break;
+                                                case 2:                                                 
+                                                        B.EnterMatrix();
+                                                    break;
+                                                case 3:                                                   
+                                                        C.EnterMatrix();
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            nhaptay = InMenu();
+                                        }
+                                        goto ahihi;
+                                        //InMenuNhap();                                        
+                                    }
+
+                                case 2:
+                                    {
+                                        int randomnhap = InMenu();
+                                        while (randomnhap != 0)
+                                        {                                            
+                                            switch (randomnhap)
+                                            {
+                                                case 1:
+                                                    A.RanDomMatrix(100,100);
+                                                    Console.WriteLine("Ok!");
+                                                    Console.ReadKey();
+                                                    break;
+                                                case 2:
+                                                    B.RanDomMatrix(100,100);
+                                                    Console.WriteLine("Ok!");
+                                                    Console.ReadKey();
+                                                    break;
+                                                case 3:
+                                                    C.RanDomMatrix(100, 100);
+                                                    Console.WriteLine("Ok!");
+                                                    Console.ReadKey();
+                                                    break;
+                                                default:
+                                                    break;
+                                            }
+                                            randomnhap = InMenu();
+                                        }
+                                        goto ahihi;
+                                    }
+                                   
+                                default:
+                                    break;
+                            }
+
+                        }
+
+                    }
+                    break;
+                case 2:
+                    {
+                        int t1=0, t2=0;
+                        SelectMatrixToCalculators(ref t1, ref t2);
+                    }
+                    break;
+                default:
+                    break;
+            }
             Console.WriteLine("Complete!\n");
             Console.ReadKey();
 
@@ -82,7 +171,7 @@ namespace MaTran
             do
             {
                 Console.WriteLine("\n--Chon thao tac: ");
-                x = Convert.ToInt32(Console.ReadLine());
+                x = int.Parse(Console.ReadLine());
             }
             while (x < 0 || x > 3);
             return x;
