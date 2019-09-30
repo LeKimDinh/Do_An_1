@@ -194,8 +194,9 @@ namespace MaTran
             {
                 for(int j=0;j<this.SoCot;j++)
                 {
-                    Console.Write(string.Format("{0}\t", Math.Round(this.Matrix[i, j], 2)));
+                    Console.Write(string.Format("{0}\t", Math.Round(this.Matrix[i, j], 5)));
                 }
+                Console.WriteLine();
                 Console.WriteLine();
             }
         }
@@ -282,7 +283,8 @@ namespace MaTran
                         {
                             tw.Write("\t");
                         }
-                        tw.Write(this.matrix[i, j]);
+                        //tw.Write(this.matrix[i, j]);
+                        tw.Write(string.Format("{0}\t", Math.Round(this.Matrix[i, j], 5)));
                     }
                     tw.WriteLine();
                 }
@@ -398,51 +400,31 @@ namespace MaTran
         }
         public void TinhCos()
         {
+            double s;
             LayDoDai();
-            //ChuanHoaMatrix();
-            //LayDoDai();
+            ChuanHoaMatrix();
             ClsMaTran kq = new ClsMaTran();
-            kq.SoCot = this.SoCot;
+            kq.SoCot = this.SoDong;
             kq.SoDong = this.SoDong;
-
-            for (int t = 0; t < this.SoDong; t++)
+            //this.SoCot = this.SoDong;
+            int t = 0, i = 0;
+            for (; t < this.SoDong; t++)
             {
-                for (int i = 0; i < this.SoDong; i++)
+                for (i = t; i < this.SoDong; i++)
                 {
-                    //if (i >= t)
-                    {
-                        double s = 0;
+                    s = 0;
+                    
                         for (int j = 0; j < this.SoCot; j++)
                         {
                             s += this.matrix[t, j] * this.matrix[i, j];
-                        }
-                        if(t ==1 && i == 1)
-                        {
-                            Console.WriteLine(s);
-                        }
-                        kq.matrix[t, i] = s;
-                    }
+                        }                                           
+                    kq.matrix[i,t] = s;
+                    kq.matrix[t,i] = s;
                 }
             }
+            this.soCot = this.SoDong;
             kq.PrintfMatrix();
-
-
-
-
-
-
-
-            // ban dau khoi tao ma tran ket qua 
-            //for(int i = 0; i < kq.SoDong; i++)
-            //{
-            //    for(int j=0;j<kq.SoCot;j++)
-            //    {
-            //        if (i == j) kq.Matrix[i, j] = 1;
-            //        else kq.Matrix[i, j] = 0;
-            //    }
-            //}
-            // chia tung dong roi chen vao ma tran nhung cho khac 1
-           
+            kq.WriteTxt();
         }
         public void test()
         {

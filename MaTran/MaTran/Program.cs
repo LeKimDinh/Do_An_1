@@ -13,10 +13,10 @@ namespace MaTran
         {            
             ClsMaTran A = new ClsMaTran();
             //A.RanDomMatrix(4, 4);
-            A.EnterMatrix();
+            A.RanDomMatrix(10, 20);
             A.TinhCos();
             //maTran.PrintfMatrix();
-         
+
             //ClsMaTran B = new ClsMaTran();
             //B.RanDomMatrix(100, 100);
             //maTran2.EnterMatrix();
@@ -24,6 +24,7 @@ namespace MaTran
             //ClsMaTran C = new ClsMaTran();
             //C = A * B;
             //C.WriteTxt();
+            //A.WriteTxt();
             Console.WriteLine("Complete!\n");
             Console.ReadKey();
 
