@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MaTran
 {
@@ -13,7 +14,6 @@ namespace MaTran
         private int soCot;
         private double[,] matrix;
         private List<double> ListDoDaiVector;
-        private List<double> ListDoDaiVector2;
 
         public ClsMaTran()
         {
@@ -373,7 +373,7 @@ namespace MaTran
                 }
             }
         }
-        public void TinhCos()
+        public ClsMaTran TinhCos()
         {
             double s;
             LayDoDai();
@@ -398,8 +398,65 @@ namespace MaTran
                 }
             }
             this.soCot = this.SoDong;
-            kq.PrintfMatrix();
-            kq.WriteTxt();
+
+            return kq;
+        }
+        public void WriteExcel()
+        {
+            string fileName;
+            Console.Write("Enter File Name :");
+            fileName = Console.ReadLine();
+
+            //Create excel app object
+            Excel.Application xlSamp = new Microsoft.Office.Interop.Excel.Application();
+            if (xlSamp == null)
+            {
+                Console.WriteLine("Excel is not Insatalled");
+                Console.ReadKey();
+                return;
+            }
+
+            //Create a new excel book and sheet
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            //Then add a sample text into first cell
+            xlWorkBook = xlSamp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            for (int i = 0; i < this.SoDong; i++)
+            {
+                for (int j = 0; j < this.SoCot; j++)
+                {
+                    xlWorkSheet.Cells[i + 1, j + 1] = this.matrix[i, j];
+
+                }
+            }
+
+
+            //Save the opened excel book to custom location
+            string location = @"D:\" + fileName + ".xls";//Dont forget, you have to add to exist location
+            xlWorkBook.SaveAs(location, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlSamp.Quit();
+
+            //release Excel Object 
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlSamp);
+                xlSamp = null;
+            }
+            catch (Exception ex)
+            {
+                xlSamp = null;
+                Console.Write("Error " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+
         }
 
     }

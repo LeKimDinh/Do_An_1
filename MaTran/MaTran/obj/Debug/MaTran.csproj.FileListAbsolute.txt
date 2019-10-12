@@ -12,3 +12,4 @@ C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAss
 C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.CoreCompileInputs.cache
 C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
 C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
