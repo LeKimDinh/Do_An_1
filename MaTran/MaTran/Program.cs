@@ -12,6 +12,7 @@ namespace MaTran
         static void Main(string[] args)
         {            
             ClsMaTran A = new ClsMaTran();
+            A.ReadTxt();
             A.RanDomMatrix(100,100);
             A=A.TinhCos();
             A.WriteExcel();

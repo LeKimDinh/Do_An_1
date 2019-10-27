@@ -270,6 +270,24 @@ namespace MaTran
                 }
             }
         }
+        public void ReadTxt()
+        {
+            FileStream fs = new FileStream("F:\\test.txt", FileMode.Open);
+            StreamReader rd = new StreamReader(fs, Encoding.UTF8);
+            this.SoDong = Convert.ToInt32(rd.ReadLine().ToString());
+            this.SoCot = Convert.ToInt32(rd.ReadLine().ToString());
+            for (int i = 0; i < this.SoDong; i++)
+            {
+                for (int j = 0; j < this.SoCot; j++)
+                {
+                    this.Matrix[i,j] = Convert.ToDouble(rd.ReadLine().ToString());
+                    Console.Write(string.Format("{0}\t", Math.Round(this.Matrix[i, j], 5)));
+                }
+                Console.WriteLine();
+            }
+            //​rd.Close();
+            //​Console.ReadLine();
+        }
         public void WriteTxt()
         {
             using (TextWriter tw = new StreamWriter("Result.txt"))
