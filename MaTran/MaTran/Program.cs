@@ -12,129 +12,132 @@ namespace MaTran
         static void Main(string[] args)
         {            
             ClsMaTran A = new ClsMaTran();
-            A.ReadTxt();
-            A.RanDomMatrix(100,100);
-            A=A.TinhCos();
-            A.WriteExcel();
-            ClsMaTran B = new ClsMaTran();
-            ClsMaTran C = new ClsMaTran();
-            ListMatrix.Add(A);
-            ListMatrix.Add(B);
-            ListMatrix.Add(C);
-            MainMenu:
-            int x = InMenu1();
+            A.EnterMatrix();
+            A.NghichDao();
+         
+            //A.ReadTxt();
+            //A.RanDomMatrix(100,100);
+            //A=A.TinhCos();
+            //A.WriteExcel();
+            //ClsMaTran B = new ClsMaTran();
+            //ClsMaTran C = new ClsMaTran();
+            //ListMatrix.Add(A);
+            //ListMatrix.Add(B);
+            //ListMatrix.Add(C);
+            //MainMenu:
+            //int x = InMenu1();
 
-            switch (x)
-            {
-                case 1:
-                    {
-                    Menu1:
-                        int nhap = InMenuNhap();
-                        if (nhap == 0)
-                            goto MainMenu;
-                        else
-                        {
-                            switch (nhap)
-                            {
+            //switch (x)
+            //{
+            //    case 1:
+            //        {
+            //        Menu1:
+            //            int nhap = InMenuNhap();
+            //            if (nhap == 0)
+            //                goto MainMenu;
+            //            else
+            //            {
+            //                switch (nhap)
+            //                {
 
-                                case 1:
-                                    {
-                                        int nhaptay = InMenu();
-                                        while (nhaptay != 0)
-                                        {
-                                            ListMatrix[nhaptay - 1].EnterMatrix();
-                                            nhaptay = InMenu();
-                                        }
-                                        goto Menu1;
-                                        //InMenuNhap();                                        
-                                    }
+            //                    case 1:
+            //                        {
+            //                            int nhaptay = InMenu();
+            //                            while (nhaptay != 0)
+            //                            {
+            //                                ListMatrix[nhaptay - 1].EnterMatrix();
+            //                                nhaptay = InMenu();
+            //                            }
+            //                            goto Menu1;
+            //                            //InMenuNhap();                                        
+            //                        }
 
-                                case 2:
-                                    {
-                                        int randomnhap = InMenu();
-                                        while (randomnhap != 0)
-                                        {
-                                            ListMatrix[randomnhap - 1].RanDomMatrix(100, 100);
-                                            Console.WriteLine("Ok!");
-                                            Console.ReadKey();
-                                            randomnhap = InMenu();
-                                        }
-                                        goto Menu1;
-                                    }
+            //                    case 2:
+            //                        {
+            //                            int randomnhap = InMenu();
+            //                            while (randomnhap != 0)
+            //                            {
+            //                                ListMatrix[randomnhap - 1].RanDomMatrix(100, 100);
+            //                                Console.WriteLine("Ok!");
+            //                                Console.ReadKey();
+            //                                randomnhap = InMenu();
+            //                            }
+            //                            goto Menu1;
+            //                        }
 
-                                default:
-                                    break;
-                            }
+            //                    default:
+            //                        break;
+            //                }
 
-                        }
+            //            }
 
-                    }
-                    break;
-                case 2:
-                    {
-                        int t1 = 0, t2 = 0, kq = 0;
-                        SelectMatrixToCalculators(ref t1, ref t2, ref kq);
-                        ListMatrix[kq - 1] = ListMatrix[t1 - 1] + ListMatrix[t2 - 1];
-                        ListMatrix[kq - 1].PrintfMatrix();
-                        Console.WriteLine("Complete!");
-                        Console.ReadKey();
-                        goto MainMenu;
-                    }
-                case 3:
-                    {
-                        int t1 = 0, t2 = 0, kq = 0;
-                        SelectMatrixToCalculators(ref t1, ref t2, ref kq);
-                        ListMatrix[kq - 1] = ListMatrix[t1 - 1] - ListMatrix[t2 - 1];
-                        ListMatrix[kq - 1].PrintfMatrix();
-                        Console.WriteLine("Complete!");
-                        Console.ReadKey();
-                        goto MainMenu;
-                    }
-                case 4:
-                    {
-                        int t1 = 0, t2 = 0, kq = 0;
-                        SelectMatrixToCalculators(ref t1, ref t2, ref kq);
-                        ListMatrix[kq - 1] = ListMatrix[t1 - 1] * ListMatrix[t2 - 1];
-                        ListMatrix[kq - 1].PrintfMatrix();
-                        Console.WriteLine("Complete!");
-                        Console.ReadKey();
-                        goto MainMenu;
-                    }
-                case 5:
-                    {
-                        int t = 0, kq = 0;
-                        SelectOneMatrix(ref t, ref kq);
-                        ListMatrix[kq - 1] = ListMatrix[t - 1].ChuyenVi();
-                        ListMatrix[kq - 1].PrintfMatrix();
-                        Console.WriteLine("Complete!");
-                        Console.ReadKey();
-                        goto MainMenu;
-                    }
+            //        }
+            //        break;
+            //    case 2:
+            //        {
+            //            int t1 = 0, t2 = 0, kq = 0;
+            //            SelectMatrixToCalculators(ref t1, ref t2, ref kq);
+            //            ListMatrix[kq - 1] = ListMatrix[t1 - 1] + ListMatrix[t2 - 1];
+            //            ListMatrix[kq - 1].PrintfMatrix();
+            //            Console.WriteLine("Complete!");
+            //            Console.ReadKey();
+            //            goto MainMenu;
+            //        }
+            //    case 3:
+            //        {
+            //            int t1 = 0, t2 = 0, kq = 0;
+            //            SelectMatrixToCalculators(ref t1, ref t2, ref kq);
+            //            ListMatrix[kq - 1] = ListMatrix[t1 - 1] - ListMatrix[t2 - 1];
+            //            ListMatrix[kq - 1].PrintfMatrix();
+            //            Console.WriteLine("Complete!");
+            //            Console.ReadKey();
+            //            goto MainMenu;
+            //        }
+            //    case 4:
+            //        {
+            //            int t1 = 0, t2 = 0, kq = 0;
+            //            SelectMatrixToCalculators(ref t1, ref t2, ref kq);
+            //            ListMatrix[kq - 1] = ListMatrix[t1 - 1] * ListMatrix[t2 - 1];
+            //            ListMatrix[kq - 1].PrintfMatrix();
+            //            Console.WriteLine("Complete!");
+            //            Console.ReadKey();
+            //            goto MainMenu;
+            //        }
+            //    case 5:
+            //        {
+            //            int t = 0, kq = 0;
+            //            SelectOneMatrix(ref t, ref kq);
+            //            ListMatrix[kq - 1] = ListMatrix[t - 1].ChuyenVi();
+            //            ListMatrix[kq - 1].PrintfMatrix();
+            //            Console.WriteLine("Complete!");
+            //            Console.ReadKey();
+            //            goto MainMenu;
+            //        }
 
-                case 7:
-                    int nhap2 = InMenu();
-                    while (nhap2 != 0)
-                    {
-                        ListMatrix[nhap2 - 1].PrintfMatrix();
-                        Console.WriteLine("Ok!");
-                        Console.ReadKey();
-                        nhap2 = InMenu();
-                    }
-                    goto MainMenu;
-                case 8:
-                    int nhap3 = InMenu();
-                    while (nhap3 != 0)
-                    {
-                        ListMatrix[nhap3 - 1].TinhCos();
-                        Console.WriteLine("Ok!");
-                        Console.ReadKey();
-                        nhap3 = InMenu();
-                    }
-                    goto MainMenu;
-                default:
-                    break;
-            }
-            Console.WriteLine("Complete!\n");
+            //    case 7:
+            //        int nhap2 = InMenu();
+            //        while (nhap2 != 0)
+            //        {
+            //            ListMatrix[nhap2 - 1].PrintfMatrix();
+            //            Console.WriteLine("Ok!");
+            //            Console.ReadKey();
+            //            nhap2 = InMenu();
+            //        }
+            //        goto MainMenu;
+            //    case 8:
+            //        int nhap3 = InMenu();
+            //        while (nhap3 != 0)
+            //        {
+            //            ListMatrix[nhap3 - 1].TinhCos();
+            //            Console.WriteLine("Ok!");
+            //            Console.ReadKey();
+            //            nhap3 = InMenu();
+            //        }
+            //        goto MainMenu;
+            //    default:
+            //        break;
+            //}
+            //Console.WriteLine("Complete!\n");
             Console.ReadKey();
 
            

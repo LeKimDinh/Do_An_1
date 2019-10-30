@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Excel = Microsoft.Office.Interop.Excel;
+//using Excel = Microsoft.Office.Interop.Excel;
 
 namespace MaTran
 {
@@ -95,17 +95,19 @@ namespace MaTran
             }
             return C;
         }
-        public bool NghichDao()
+        public void NghichDao()
         {
             if (this.SoDong != this.soCot)
             {
                 Console.WriteLine("There is no inverse matrix\n");
-                return false;
+                return;
             }
             ClsMaTran B = new ClsMaTran();
-            for(int i = 0; i < this.SoDong; i++)
+            B.soDong = this.soDong;
+            B.soCot = this.soDong;
+            for(int i = 0; i < this.soDong; i++)
             {
-                for(int j = 0; j < this.SoDong; j++)
+                for(int j = 0; j < this.soDong; j++)
                 {
                     B.Matrix[i,j] = Con(this, this.SoDong, i, j);
                 }
@@ -119,33 +121,33 @@ namespace MaTran
                     B.Matrix[j,i] = t;
                 }
             }
-            double k = Det(this.SoDong);
+            double k = Det(this,this.SoDong);
             for (int i = 0; i < this.SoDong; i++)
                 for (int j = 0; j < this.SoDong; j++)
                     B.Matrix[i,j] /= k;
             if (k == 0) Console.WriteLine("There is no inverse matrix\n");
             else B.PrintfMatrix();
-            return true;
+            return;
         }
-        public double Det(int n)
+        public double Det(ClsMaTran A ,int n)
         {
             int i, j, k, dem = 0, kt=0;
             double[] b = new double[100];
             double kq = 1, h;
             for (i = 0; i < n - 1; i++)
             {
-                if (this.Matrix[i,i] == 0)
+                if (A.Matrix[i,i] == 0)
                 {
                     kq = 0;
                     for (j = i + 1; j < n; j++)
                     {
-                        if (this.Matrix[i,j] != 0)
+                        if (A.Matrix[i,j] != 0)
                         {
                             for (k = 0; k < n; k++)
                             {
-                                double t = this.Matrix[k,i];
-                                this.Matrix[k,i] = this.Matrix[k,j];
-                                this.Matrix[k,j] = t;
+                                double t = A.Matrix[k,i];
+                                A.Matrix[k,i] = A.Matrix[k,j];
+                                A.Matrix[k,j] = t;
                             }
                             dem++;
                             kt++;
@@ -154,16 +156,16 @@ namespace MaTran
                     }
                     if (kt == 0) return 0;
                 }
-                b[i] = this.Matrix[i,i];
-                for (j = 0; j < n; j++) this.Matrix[i,j] /= b[i];
+                b[i] = A.Matrix[i,i];
+                for (j = 0; j < n; j++) A.Matrix[i,j] /= b[i];
                 for (j = i + 1; j < n; j++)
                 {
-                    h = this.Matrix[j,i];
-                    for (k = 0; k < n; k++) this.Matrix[j,k] = this.Matrix[j,k] - h * this.Matrix[i,k];
+                    h = A.Matrix[j,i];
+                    for (k = 0; k < n; k++) A.Matrix[j,k] = A.Matrix[j,k] - h * A.Matrix[i,k];
                 }
                 
             }
-            b[n - 1] = this.Matrix[n - 1,n - 1];
+            b[n-1] = A.Matrix[n-1,n-1];
             for (i = 0; i < n; i++) kq *= b[i];
             if (dem % 2 == 0) return kq;
             return -kq;
@@ -171,6 +173,8 @@ namespace MaTran
         private double Con(ClsMaTran A, int SoN, int h, int c)
         {
             ClsMaTran B = new ClsMaTran();
+            B.soDong = SoN;
+            B.soCot = SoN;
             int i, j, x = -1, y;
             for (i = 0; i < SoN; i++)
             {
@@ -184,8 +188,8 @@ namespace MaTran
                     B.Matrix[x,y] = A.Matrix[i,j];
                 }
             }
-            if ((h + c) % 2 == 0) return Det(SoN - 1);
-            return -Det(SoN - 1);
+            if ((h + c) % 2 == 0) return Det(B,SoN - 1);
+            return -Det(B,SoN - 1);
         }
         public void PrintfMatrix()
         {
@@ -272,7 +276,7 @@ namespace MaTran
         }
         public void ReadTxt()
         {
-            FileStream fs = new FileStream("F:\\test.txt", FileMode.Open);
+            FileStream fs = new FileStream("D:\\test.txt", FileMode.Open);
             StreamReader rd = new StreamReader(fs, Encoding.UTF8);
             this.SoDong = Convert.ToInt32(rd.ReadLine().ToString());
             this.SoCot = Convert.ToInt32(rd.ReadLine().ToString());
@@ -419,63 +423,63 @@ namespace MaTran
 
             return kq;
         }
-        public void WriteExcel()
-        {
-            string fileName;
-            Console.Write("Enter File Name :");
-            fileName = Console.ReadLine();
+       // public void WriteExcel()
+        //{
+        //    string fileName;
+        //    Console.Write("Enter File Name :");
+        //    fileName = Console.ReadLine();
 
-            //Create excel app object
-            Excel.Application xlSamp = new Microsoft.Office.Interop.Excel.Application();
-            if (xlSamp == null)
-            {
-                Console.WriteLine("Excel is not Insatalled");
-                Console.ReadKey();
-                return;
-            }
+        //    //Create excel app object
+        //    Excel.Application xlSamp = new Microsoft.Office.Interop.Excel.Application();
+        //    if (xlSamp == null)
+        //    {
+        //        Console.WriteLine("Excel is not Insatalled");
+        //        Console.ReadKey();
+        //        return;
+        //    }
 
-            //Create a new excel book and sheet
-            Excel.Workbook xlWorkBook;
-            Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
+        //    //Create a new excel book and sheet
+        //    Excel.Workbook xlWorkBook;
+        //    Excel.Worksheet xlWorkSheet;
+        //    object misValue = System.Reflection.Missing.Value;
 
-            //Then add a sample text into first cell
-            xlWorkBook = xlSamp.Workbooks.Add(misValue);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+        //    //Then add a sample text into first cell
+        //    xlWorkBook = xlSamp.Workbooks.Add(misValue);
+        //    xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            for (int i = 0; i < this.SoDong; i++)
-            {
-                for (int j = 0; j < this.SoCot; j++)
-                {
-                    xlWorkSheet.Cells[i + 1, j + 1] = this.matrix[i, j];
+        //    for (int i = 0; i < this.SoDong; i++)
+        //    {
+        //        for (int j = 0; j < this.SoCot; j++)
+        //        {
+        //            xlWorkSheet.Cells[i + 1, j + 1] = this.matrix[i, j];
 
-                }
-            }
+        //        }
+        //    }
 
 
-            //Save the opened excel book to custom location
-            string location = @"D:\" + fileName + ".xls";//Dont forget, you have to add to exist location
-            xlWorkBook.SaveAs(location, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            xlWorkBook.Close(true, misValue, misValue);
-            xlSamp.Quit();
+        //    //Save the opened excel book to custom location
+        //    string location = @"D:\" + fileName + ".xls";//Dont forget, you have to add to exist location
+        //    xlWorkBook.SaveAs(location, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+        //    xlWorkBook.Close(true, misValue, misValue);
+        //    xlSamp.Quit();
 
-            //release Excel Object 
-            try
-            {
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(xlSamp);
-                xlSamp = null;
-            }
-            catch (Exception ex)
-            {
-                xlSamp = null;
-                Console.Write("Error " + ex.ToString());
-            }
-            finally
-            {
-                GC.Collect();
-            }
+        //    //release Excel Object 
+        //    try
+        //    {
+        //        System.Runtime.InteropServices.Marshal.ReleaseComObject(xlSamp);
+        //        xlSamp = null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        xlSamp = null;
+        //        Console.Write("Error " + ex.ToString());
+        //    }
+        //    finally
+        //    {
+        //        GC.Collect();
+        //    }
 
-        }
+        //}
 
     }
 }

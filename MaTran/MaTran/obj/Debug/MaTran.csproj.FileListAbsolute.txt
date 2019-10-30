@@ -13,3 +13,10 @@ C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
 C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
 D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
 C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe.config
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.pdb
