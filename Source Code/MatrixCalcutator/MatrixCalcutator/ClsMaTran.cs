@@ -355,12 +355,12 @@ namespace MatrixCalcutator
             }
             return C;
         }
-        public void NghichDao()
+        public ClsMaTran NghichDao()
         {
             if (this.SoDong != this.soCot)
             {
                 Console.WriteLine("There is no inverse matrix\n");
-                return;
+                return this;
             }
             ClsMaTran B = new ClsMaTran();
             B.soDong = this.soDong;
@@ -385,9 +385,8 @@ namespace MatrixCalcutator
             for (int i = 0; i < this.SoDong; i++)
                 for (int j = 0; j < this.SoDong; j++)
                     B.Matrix[i, j] /= k;
-            if (k == 0) Console.WriteLine("There is no inverse matrix\n");
-            else B.PrintfMatrix();
-            return;
+            if (k == 0) { Console.WriteLine("There is no inverse matrix\n"); return this; }
+            else return B;           
         }
         public double Det(ClsMaTran A, int n)
         {

@@ -150,7 +150,7 @@ namespace MatrixCalcutator
                     {
                         int t = 0, kq = 0;
                         SelectOneMatrix(ref t, ref kq);
-                        ListMatrix[kq - 1] = ListMatrix[t - 1].ChuyenVi();
+                        ListMatrix[kq - 1]=ListMatrix[t - 1].NghichDao();
                         ListMatrix[kq - 1].PrintfMatrix();
                         Console.WriteLine("Complete!");
                         Console.ReadKey();
