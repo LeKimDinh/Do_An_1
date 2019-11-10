@@ -1,0 +1,45 @@
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe.config
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.CoreCompileInputs.cache
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe.config
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.pdb
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\Đồ Án 1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+C:\Users\mrtht\Documents\GitHub\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+<<<<<<< HEAD
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\bin\Debug\MaTran.exe.config
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\bin\Debug\MaTran.exe
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\bin\Debug\MaTran.pdb
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\obj\Debug\MaTran.exe
+C:\Users\mrtht\Documents\GitHub\Do_An_1 - Copy\MaTran\MaTran\obj\Debug\MaTran.pdb
+=======
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe.config
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.pdb
+>>>>>>> d5e59ec1e0245aa5f0bba9c76e98f317f94cfd3b
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe.config
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\bin\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.CopyComplete
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\DA1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.csproj.ResolveComReference.cache
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.exe
+D:\Học Kỳ 1 Năm 3\HQTCSDL\QuanLyTraSua\Do_An_1\Do_An_1\MaTran\MaTran\obj\Debug\MaTran.pdb
