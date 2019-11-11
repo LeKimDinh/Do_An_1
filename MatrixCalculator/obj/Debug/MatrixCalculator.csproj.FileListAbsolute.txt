@@ -1,0 +1,6 @@
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\bin\Debug\MatrixCalculator.exe.config
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\bin\Debug\MatrixCalculator.exe
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\bin\Debug\MatrixCalculator.pdb
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\obj\Debug\MatrixCalculator.csprojAssemblyReference.cache
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\obj\Debug\MatrixCalculator.exe
+D:\Học Kỳ 1 Năm 3\MatrixCalculator\obj\Debug\MatrixCalculator.pdb
